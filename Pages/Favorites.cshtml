@@ -1,0 +1,76 @@
+@page
+@model FoodMatchWeb.Pages.FavoritesModel
+
+<div class="find-container">
+
+    <div class="page-title">
+        <h1>❤️ Favorites</h1>
+        <p>เมนูโปรดของคุณทั้งหมด</p>
+    </div>
+
+    @if (Model.Favorites.Count == 0)
+    {
+        <div class="no-result">
+            <div style="font-size:60px;">🍽️</div>
+
+            <h2>ยังไม่มีเมนูโปรด</h2>
+
+            <p>
+                ลองไปค้นหาเมนู แล้วเพิ่มเมนูที่ชอบไว้ที่นี่
+            </p>
+
+            <a href="/FindFood" class="btn-primary">
+                🍽️ หาอาหาร
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="food-results">
+
+            @foreach (var food in Model.Favorites)
+            {
+                <div class="food-result-card">
+
+                    <div class="food-rank">
+                        ❤️
+                    </div>
+
+                    <div class="food-info">
+
+                        <h3>@food.Name</h3>
+
+                        <p>
+                            💰 @food.Price บาท
+                            · 🥩 @food.Ingredient
+                            · 🌶️ @food.Taste
+                        </p>
+
+                        <p>
+                            🍱 @food.Type
+                            · ⭐ @food.Rating
+                        </p>
+
+                    </div>
+
+                    <form method="post"
+                          asp-page-handler="Remove">
+
+                        <input type="hidden"
+                               name="foodName"
+                               value="@food.Name" />
+
+                        <button type="submit"
+                                class="favorite-remove">
+                            🗑️
+                        </button>
+
+                    </form>
+
+                </div>
+            }
+
+        </div>
+    }
+
+</div>

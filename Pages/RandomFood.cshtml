@@ -1,0 +1,57 @@
+@page
+@model FoodMatchWeb.Pages.RandomFoodModel
+
+<div class="random-container">
+
+    <div class="page-title">
+        <h1>🎲 Random Food</h1>
+        <p>ไม่รู้จะกินอะไร? ให้ FoodMatch สุ่มให้เลย!</p>
+    </div>
+
+    <div class="random-card">
+
+        @if (Model.RandomResult != null)
+        {
+            <div class="random-icon">🍽️</div>
+
+            <h2>@Model.RandomResult.Name</h2>
+
+            <div class="random-price">
+                💰 @Model.RandomResult.Price บาท
+            </div>
+
+            <div class="random-details">
+                <span>🥩 @Model.RandomResult.Ingredient</span>
+                <span>🌶️ @Model.RandomResult.Taste</span>
+                <span>🍱 @Model.RandomResult.Type</span>
+                <span>⭐ @Model.RandomResult.Rating</span>
+            </div>
+
+            <div class="random-message">
+                😋 วันนี้ลองเมนูนี้ดูไหม?
+            </div>
+        }
+        else
+        {
+            <div class="random-icon">
+                🎲
+            </div>
+
+            <h2>พร้อมหรือยัง?</h2>
+
+            <p>
+                กดปุ่มด้านล่างเพื่อสุ่มเมนูอาหาร
+            </p>
+        }
+
+        <form method="post">
+
+            <button type="submit" class="random-button">
+                🎲 สุ่มเมนู
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

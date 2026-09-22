@@ -1,0 +1,163 @@
+@page
+@model FoodMatchWeb.Pages.FindFoodModel
+
+<div class="find-container">
+
+    <div class="page-title">
+        <h1>🍽️ Find Your Food</h1>
+        <p>เลือกสิ่งที่คุณต้องการ แล้วให้ FoodMatch ช่วยหาเมนู</p>
+    </div>
+
+    <form method="post" class="food-form">
+
+        <div class="form-grid">
+
+            <div class="input-group">
+                <label>💰 งบประมาณ</label>
+
+                <input
+                    type="number"
+                    asp-for="Budget"
+                    min="1"
+                    placeholder="เช่น 70"
+                    required />
+            </div>
+
+            <div class="input-group">
+                <label>🌶️ รสชาติ</label>
+
+                <select asp-for="Taste">
+                    <option value="อะไรก็ได้">อะไรก็ได้</option>
+                    <option value="เผ็ด">เผ็ด</option>
+                    <option value="หวาน">หวาน</option>
+                    <option value="เค็ม">เค็ม</option>
+                    <option value="ไม่เผ็ด">ไม่เผ็ด</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>🥩 วัตถุดิบ</label>
+
+                <select asp-for="Ingredient">
+                    <option value="อะไรก็ได้">อะไรก็ได้</option>
+                    <option value="หมู">หมู</option>
+                    <option value="ไก่">ไก่</option>
+                    <option value="เนื้อ">เนื้อ</option>
+                    <option value="ทะเล">ทะเล</option>
+                    <option value="ไข่">ไข่</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>🍱 ประเภทอาหาร</label>
+
+                <select asp-for="Type">
+                    <option value="อะไรก็ได้">อะไรก็ได้</option>
+                    <option value="อาหารจานเดียว">อาหารจานเดียว</option>
+                    <option value="เส้น">เส้น</option>
+                    <option value="บุฟเฟต์">บุฟเฟต์</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button type="submit" class="find-button">
+            🔍 ค้นหาเมนู
+        </button>
+
+    </form>
+
+    @if (Model.Results.Count > 0)
+    {
+        <div class="results-section">
+
+            <h2>🏆 เมนูที่เหมาะกับคุณ</h2>
+
+            <div class="food-results">
+
+                @foreach (var result in Model.Results)
+                {
+                    <div class="food-result-card">
+
+                        <div class="food-rank">
+                            #@result.Rank
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>@result.Food.Name</h3>
+
+                            <p>
+                                💰 @result.Food.Price บาท
+                            </p>
+
+                            <p>
+                                🥩 @result.Food.Ingredient
+                                · 🌶️ @result.Food.Taste
+                            </p>
+
+                            <p>
+                                🍱 @result.Food.Type
+                                · ⭐ @result.Food.Rating
+                            </p>
+
+                        </div>
+
+                        <div class="result-actions">
+
+                            <div class="match-score">
+                                @result.Score%
+                                <span>Match</span>
+                            </div>
+
+                            <!-- History -->
+                            <form method="post"
+                                  asp-page-handler="History">
+
+                                <input
+                                    type="hidden"
+                                    name="foodName"
+                                    value="@result.Food.Name" />
+
+                                <button
+                                    type="submit"
+                                    class="history-button">
+                                    🕘
+                                </button>
+
+                            </form>
+
+                            <!-- Favorites -->
+                            <form method="post"
+                                  asp-page-handler="Favorite">
+
+                                <input
+                                    type="hidden"
+                                    name="foodName"
+                                    value="@result.Food.Name" />
+
+                                <button
+                                    type="submit"
+                                    class="favorite-button">
+                                    ❤️
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    }
+    else if (Model.HasSearched)
+    {
+        <div class="no-result">
+            😢 ไม่พบเมนูที่ตรงกับเงื่อนไข
+        </div>
+    }
+
+</div>

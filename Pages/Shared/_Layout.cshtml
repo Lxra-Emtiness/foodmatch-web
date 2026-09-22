@@ -1,0 +1,86 @@
+﻿@using Microsoft.AspNetCore.Mvc.Razor
+@using Microsoft.AspNetCore.Mvc.RazorPages
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - FoodMatch</title>
+
+    <!-- FoodMatch CSS -->
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a asp-page="/Index" class="logo">
+                🍜 FoodMatch
+            </a>
+
+            <nav class="nav-menu">
+
+                <a asp-page="/Index">
+                    🏠 Home
+                </a>
+
+                <a asp-page="/FindFood">
+                    🍽️ Find Food
+                </a>
+
+                <a asp-page="/RandomFood">
+                    🎲 Random
+                </a>
+
+                <a asp-page="/Favorites">
+                    ❤️ Favorites
+                </a>
+
+                <a asp-page="/History">
+                    📜 History
+                </a>
+
+                <a asp-page="/Statistics">
+                    📊 Statistics
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- PAGE CONTENT -->
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- SCRIPTS -->
+
+    @await RenderSectionAsync(
+        "Scripts",
+        required: false
+    )
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+@page
+@model FoodMatchWeb.Pages.StatisticsModel
+
+<div class="stats-container">
+
+    <div class="page-title">
+        <h1>📊 Statistics</h1>
+        <p>ดูสถิติการเลือกอาหารของคุณ</p>
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">🍽️</div>
+            <div class="stat-info">
+                <span>เมนูทั้งหมด</span>
+                <strong>@Model.TotalFoods</strong>
+                <small>รายการ</small>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+                <span>ราคาเฉลี่ย</span>
+                <strong>@Model.AveragePrice.ToString("0.00")</strong>
+                <small>บาท</small>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-info">
+                <span>คะแนนเฉลี่ย</span>
+                <strong>@Model.AverageRating.ToString("0.0")</strong>
+                <small>/ 5.0</small>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-info">
+                <span>เมนูที่เลือกบ่อย</span>
+                <strong class="stat-food">
+                    @(Model.MostSelectedFood ?? "-")
+                </strong>
+            </div>
+        </div>
+
+    </div>
+
+    @if (Model.TotalFoods > 0)
+    {
+        <div class="stats-sections">
+
+            <div class="stats-box">
+
+                <h2>🌶️ รสชาติที่เลือกบ่อยที่สุด</h2>
+
+                <div class="big-stat">
+                    @Model.MostSelectedTaste
+                </div>
+
+            </div>
+
+            <div class="stats-box">
+
+                <h2>🥩 วัตถุดิบที่เลือกบ่อยที่สุด</h2>
+
+                <div class="big-stat">
+                    @Model.MostSelectedIngredient
+                </div>
+
+            </div>
+
+            <div class="stats-box">
+
+                <h2>🍱 ประเภทอาหารที่เลือกบ่อยที่สุด</h2>
+
+                <div class="big-stat">
+                    @Model.MostSelectedType
+                </div>
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="no-result">
+
+            <div style="font-size:60px;">
+                📊
+            </div>
+
+            <h2>ยังไม่มีข้อมูลสถิติ</h2>
+
+            <p>
+                ลองค้นหาอาหารหรือสุ่มเมนูก่อน
+            </p>
+
+            <a href="/FindFood" class="btn-primary">
+                🍽️ เริ่มหาอาหาร
+            </a>
+
+        </div>
+    }
+
+</div>

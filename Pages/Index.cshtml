@@ -1,0 +1,275 @@
+﻿@page
+@model FoodMatchWeb.Pages.IndexModel
+
+<div class="fm-home">
+
+    <!-- HERO -->
+    <section class="fm-hero">
+
+        <div class="fm-hero-text">
+
+            <div class="fm-tag">
+                🍜 FOODMATCH
+            </div>
+
+            <h1>
+                วันนี้<br>
+                <span>กินอะไรดี?</span>
+            </h1>
+
+            <p>
+                ไม่รู้จะกินอะไร? 🤔<br>
+                ให้ FoodMatch ช่วยหาเมนูที่เหมาะกับคุณ
+            </p>
+
+            <div class="fm-actions">
+
+                <a asp-page="/FindFood" class="fm-btn fm-btn-main">
+                    🍽️ หาอาหาร
+                </a>
+
+                <a asp-page="/RandomFood" class="fm-btn fm-btn-outline">
+                    🎲 สุ่มเมนู
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="fm-section">
+
+        <div class="fm-heading">
+
+            <div>FEATURES</div>
+
+            <h2>
+                ทุกอย่างที่ช่วยให้เลือกอาหารง่ายขึ้น
+            </h2>
+
+            <p>
+                เลือกวิธีที่เหมาะกับคุณ แล้วให้ FoodMatch จัดการต่อ
+            </p>
+
+        </div>
+
+
+        <div class="fm-feature-grid">
+
+            <a asp-page="/FindFood" class="fm-feature">
+
+                <div class="fm-feature-icon">
+                    🍽️
+                </div>
+
+                <div class="fm-feature-content">
+                    <h3>Find Food</h3>
+
+                    <p>
+                        เลือกงบประมาณ รสชาติ
+                        วัตถุดิบ และประเภทอาหาร
+                    </p>
+                </div>
+
+                <span>→</span>
+
+            </a>
+
+
+            <a asp-page="/RandomFood" class="fm-feature">
+
+                <div class="fm-feature-icon">
+                    🎲
+                </div>
+
+                <div class="fm-feature-content">
+                    <h3>Random Food</h3>
+
+                    <p>
+                        ไม่อยากคิดเอง?
+                        ให้ระบบสุ่มเมนูให้เลย
+                    </p>
+                </div>
+
+                <span>→</span>
+
+            </a>
+
+
+            <a asp-page="/Favorites" class="fm-feature">
+
+                <div class="fm-feature-icon">
+                    ❤️
+                </div>
+
+                <div class="fm-feature-content">
+                    <h3>Favorites</h3>
+
+                    <p>
+                        เก็บเมนูโปรดที่คุณชอบ
+                        ไว้ดูภายหลัง
+                    </p>
+                </div>
+
+                <span>→</span>
+
+            </a>
+
+
+            <a asp-page="/History" class="fm-feature">
+
+                <div class="fm-feature-icon">
+                    📜
+                </div>
+
+                <div class="fm-feature-content">
+                    <h3>History</h3>
+
+                    <p>
+                        ดูเมนูที่คุณเคยเลือก
+                        พร้อมวันและเวลา
+                    </p>
+                </div>
+
+                <span>→</span>
+
+            </a>
+
+
+            <a asp-page="/Statistics" class="fm-feature">
+
+                <div class="fm-feature-icon">
+                    📊
+                </div>
+
+                <div class="fm-feature-content">
+                    <h3>Statistics</h3>
+
+                    <p>
+                        ดูสถิติการเลือกอาหาร
+                        ของคุณ
+                    </p>
+                </div>
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="fm-how">
+
+        <div class="fm-heading">
+
+            <div>HOW IT WORKS</div>
+
+            <h2>
+                เลือกอาหารง่ายๆ ใน 3 ขั้นตอน
+            </h2>
+
+        </div>
+
+
+        <div class="fm-steps">
+
+            <div class="fm-step">
+
+                <div class="fm-step-number">
+                    01
+                </div>
+
+                <div class="fm-step-icon">
+                    🔍
+                </div>
+
+                <h3>เลือกสิ่งที่ต้องการ</h3>
+
+                <p>
+                    กำหนดงบ รสชาติ
+                    วัตถุดิบ และประเภทอาหาร
+                </p>
+
+            </div>
+
+
+            <div class="fm-line"></div>
+
+
+            <div class="fm-step">
+
+                <div class="fm-step-number">
+                    02
+                </div>
+
+                <div class="fm-step-icon">
+                    🧠
+                </div>
+
+                <h3>FoodMatch วิเคราะห์</h3>
+
+                <p>
+                    ระบบคำนวณ Match Score
+                    เพื่อหาเมนูที่เหมาะกับคุณ
+                </p>
+
+            </div>
+
+
+            <div class="fm-line"></div>
+
+
+            <div class="fm-step">
+
+                <div class="fm-step-number">
+                    03
+                </div>
+
+                <div class="fm-step-icon">
+                    😋
+                </div>
+
+                <h3>เลือกแล้วไปกิน!</h3>
+
+                <p>
+                    เลือกเมนูที่ถูกใจ
+                    แล้วไปอิ่มอร่อยกันเลย
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="fm-cta">
+
+        <div>
+
+            <small>READY TO EAT?</small>
+
+            <h2>
+                หิวแล้วใช่ไหม? 🍜
+            </h2>
+
+            <p>
+                ให้ FoodMatch ช่วยเลือกมื้อถัดไปของคุณ
+            </p>
+
+        </div>
+
+        <a asp-page="/FindFood">
+            เริ่มหาอาหาร →
+        </a>
+
+    </section>
+
+</div>
